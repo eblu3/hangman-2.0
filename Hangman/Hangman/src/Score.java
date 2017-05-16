@@ -11,6 +11,7 @@ public class Score
 	
 	public int getPoints()
 	{
+		points =  (getCorrect() * 100) - (getMisses() * 50);
 		return points;
 	}
 	
@@ -23,4 +24,15 @@ public class Score
 	{
 		return correct;
 	}
+	
+	public void setCorrect()
+	{
+		correct += 1;
+	}
+	
+	public void setMisses()
+	{
+		misses += 1;
+	}
+	
 }
