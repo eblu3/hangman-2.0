@@ -2,10 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MainMenu extends JFrame
+public class MainMenu extends JFrame implements ActionListener
 {
 	private static final long serialVersionUID = 9070635507881820105L;
-	private ActionListener playClicked;
 
 	public static void main(String [] args)
 	{
@@ -35,7 +34,6 @@ public class MainMenu extends JFrame
 	    b.setFont(new Font("ChalkBoard", Font.BOLD, 24));  // font , bold text, size of text
 	    b.setLocation(160, 450);
 	    b.setToolTipText("Click to begin"); // hover over text
-	    b.addActionListener(playClicked);
 	    
 	    //instructions button
 		JButton b2 = new JButton("Instructions");
@@ -52,6 +50,14 @@ public class MainMenu extends JFrame
 		p.add(b2); //adding instructions button
 		add(p); //adding panel
 		
+		b.addActionListener(this);
+		
 		setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		if(e.getActionCommand().equals("Start Game"))
+			System.out.println("start game");
 	}
 }
