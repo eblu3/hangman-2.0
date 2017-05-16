@@ -3,5 +3,5 @@ follow the instructions below!
 
 1)Choose the appropriate level
 2)Using your keyboard, type in the desired letters
-  before HangMan dies. 
+  before the hangman dies. 
 3)After every misspelled word appears  
