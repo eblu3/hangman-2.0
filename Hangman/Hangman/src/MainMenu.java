@@ -6,11 +6,6 @@ public class MainMenu extends JFrame implements ActionListener
 {
 	private static final long serialVersionUID = 9070635507881820105L;
 
-	public static void main(String [] args)
-	{
-		new MainMenu();
-	}
-	
 	public MainMenu()
 	{
 		super("Hangman 2.0 - Menu");
@@ -18,6 +13,7 @@ public class MainMenu extends JFrame implements ActionListener
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(800,800);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		//JLabel l = new JLabel();
 
 		//panel
@@ -58,6 +54,12 @@ public class MainMenu extends JFrame implements ActionListener
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		System.out.println("Button clicked: " + e.getActionCommand());
+		switch(e.getActionCommand())
+		{
+		case "Start Game":
+			break;
+		case "Instructions":
+			new InstructionsPage();
+		}
 	}
 }
