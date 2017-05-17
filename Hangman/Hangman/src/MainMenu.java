@@ -51,13 +51,13 @@ public class MainMenu extends JFrame implements ActionListener
 		add(p); //adding panel
 		
 		b.addActionListener(this);
+		b2.addActionListener(this);
 		
 		setVisible(true);
 	}
 	
 	public void actionPerformed(ActionEvent e)
 	{
-		if(e.getActionCommand().equals("Start Game"))
-			System.out.println("start game");
+		System.out.println("Button clicked: " + e.getActionCommand());
 	}
 }
