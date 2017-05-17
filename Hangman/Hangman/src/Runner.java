@@ -15,34 +15,37 @@ class Difficulty
 	{
 		level = choice;
 		Scanner scan = null;
-		if(level.equals("easy")) //Generating Easy ArrayList
+		switch(choice)
 		{
+		case "easy": //setting word bank to easy words
 			scan = new Scanner(new File("Easy.dat"));
 			while(scan.hasNextLine())
 			{
 				String str = scan.nextLine();
 				easy.add(str);
-			}	
-		}
-		
-		if(level.equals("medium")) //Generating Medium ArrayList
-		{
+			}
+			break;
+			
+		case "medium": //setting word bank to medium words
 			scan = new Scanner(new File("Medium.dat"));
 			while(scan.hasNextLine())
 			{
 				String str = scan.nextLine();
 				medium.add(str);
-			}	
-		}
-		
-		if(level.equals("hard")) //Generating Medium ArrayList
-		{
+			}
+			break;
+			
+		case "hard": //setting word bank to hard words
 			scan = new Scanner(new File("Hard.dat"));
 			while(scan.hasNextLine())
 			{
 				String str = scan.nextLine();
 				hard.add(str);
-			}	
+			}
+			break;
+			
+		default: //idiot-proofing
+			System.out.println("Input invalid");
 		}
 	}
 	
