@@ -18,7 +18,7 @@ public class MainMenu extends JFrame implements ActionListener
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(800,800);
 		setLocationRelativeTo(null);
-		JLabel l = new JLabel();
+		//JLabel l = new JLabel();
 
 		//panel
 		JPanel p = new JPanel();
