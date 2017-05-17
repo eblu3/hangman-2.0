@@ -17,8 +17,9 @@ public class InstructionsPage extends JFrame implements ActionListener
 	
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setSize(800,800);		setLocationRelativeTo(null);
-	JLabel l = new JLabel();
+	JLabel l = new JLabel("Hello Player ");
 	
+	l.setText(l.getText()+"Hello");
 	//Panel
 	JPanel p = new JPanel();
 	p.setLayout(null);
