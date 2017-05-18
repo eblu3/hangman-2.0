@@ -37,23 +37,19 @@ public class InstructionsPage extends JFrame implements ActionListener
 			line.useDelimiter("");
 			
 			while(line.hasNext())
-			{
-				String nextChar = line.next();
-				
-				System.out.println(nextChar);
-				
-				instructions.insertString(instructions.getLength(), nextChar, new SimpleAttributeSet());
-			}
+				instructions.insertString(instructions.getLength(), line.next(), new SimpleAttributeSet());
 			
 			instructions.insertString(instructions.getLength(), System.lineSeparator(), new SimpleAttributeSet());
 		}
 		
 		file.close();
 		
+		instructions.remove(instructions.getLength()-1, 1);
+		
 		instructionsField.setDocument(instructions);
+		instructionsField.setEditable(false);
 		
 		p.add(instructionsField);
-	
 		setVisible(true);
 		
 		return p;
