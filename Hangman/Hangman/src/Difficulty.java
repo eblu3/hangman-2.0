@@ -12,10 +12,11 @@ class Difficulty
 	{
 		level = choice;
 		Scanner scan = null;
-		switch(choice)
+		switch(choice.toLowerCase())
 		{
 		case "easy": //setting word bank to easy words
 			scan = new Scanner(new File("Easy.dat"));
+			easy = new ArrayList<String>();
 			while(scan.hasNextLine())
 			{
 				String str = scan.nextLine();
@@ -25,6 +26,7 @@ class Difficulty
 			
 		case "medium": //setting word bank to medium words
 			scan = new Scanner(new File("Medium.dat"));
+			medium = new ArrayList<String>();
 			while(scan.hasNextLine())
 			{
 				String str = scan.nextLine();
@@ -34,6 +36,7 @@ class Difficulty
 			
 		case "hard": //setting word bank to hard words
 			scan = new Scanner(new File("Hard.dat"));
+			hard = new ArrayList<String>();
 			while(scan.hasNextLine())
 			{
 				String str = scan.nextLine();
@@ -48,7 +51,7 @@ class Difficulty
 	
 	public String getPhrase() //Generating a random Phrase
 	{
-		int phrase = (int)(Math.random() * 80) + 1;
+		int phrase = (int)(Math.random() * 79);
 		
 		if(level.equals("easy"))
 			return easy.get(phrase);
