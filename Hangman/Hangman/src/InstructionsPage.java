@@ -16,7 +16,8 @@ public class InstructionsPage extends JFrame implements ActionListener
 	{
 		setSize(800,800);
 		setLocationRelativeTo(null);
-		JLabel l = new JLabel();
+		//Label
+		JLabel l = new JLabel("Instructions");
 	
 		//Panel
 		JPanel p = new JPanel();
@@ -24,6 +25,7 @@ public class InstructionsPage extends JFrame implements ActionListener
 		p.setBackground(new Color(255, 163, 26));
 		
 		add(p);
+		p.add(l);
 	
 		setVisible(true);
 	}
