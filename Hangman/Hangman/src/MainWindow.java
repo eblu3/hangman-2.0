@@ -48,6 +48,8 @@ public class MainWindow implements ActionListener
         p.add(game1);
         p.add(game2);
         p.add(game3);
+        
+        level = "Easy";
 
         game1.setVisible(false);
         game2.setVisible(false);
@@ -95,6 +97,8 @@ public class MainWindow implements ActionListener
 		else
 		{
 			level = (String) difficultySelector.getSelectedItem();
+			
+			System.out.println(level);
 		}
 	}
 
