@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MainMenu extends JFrame implements ActionListener
+public class MainWindow extends JFrame implements ActionListener
 {
 	private static final long serialVersionUID = 9070635507881820105L;
 
-	public MainMenu()
+	public MainWindow()
 	{
 		super("Hangman 2.0 - Menu");
 	
