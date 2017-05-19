@@ -130,7 +130,7 @@ public class MainWindow implements ActionListener
 		
 	}
 
-    private static void show()   
+    public static void show()   
     {
         //Create and set up the window.
         JFrame frame = new JFrame("HangMan 2.0");
@@ -156,8 +156,4 @@ public class MainWindow implements ActionListener
         frame.setVisible(true);
     }
  
-    public static void main(String[] args)   
-    {
-    	show();
-    }
 }

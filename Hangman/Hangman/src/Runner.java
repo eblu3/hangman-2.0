@@ -6,6 +6,7 @@ public class Runner
 {
 	public static void main(String[] args)
 	{
-		new MainWindow();
+		MainWindow m = new MainWindow();
+		m.show();
 	}
 }
