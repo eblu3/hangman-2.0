@@ -8,16 +8,8 @@ import java.io.FileNotFoundException;
 
 public class InstructionsPage extends JFrame implements ActionListener
 {
-	public static void main(String[] args) throws FileNotFoundException, BadLocationException
-	{
-		JFrame window = new JFrame();
-		InstructionsPage test = new InstructionsPage();
-		window.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		window.add(test.getPanel());
-		window.setSize(800,800);
-		window.setVisible(true);
-	}
-	
+	private static final long serialVersionUID = -8834323742424624104L;
+
 	public JPanel getPanel() throws FileNotFoundException, BadLocationException
 	{
 		//Panel
@@ -50,7 +42,6 @@ public class InstructionsPage extends JFrame implements ActionListener
 		instructionsField.setEditable(false);
 		
 		p.add(instructionsField);
-		setVisible(true);
 		
 		return p;
 	}
