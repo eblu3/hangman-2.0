@@ -15,6 +15,8 @@ public class Board implements ActionListener
 	Difficulty d;
 	String word;
 	Hangman h;
+	boolean gameWon = true;
+	
 	public Board()
 	{
 		buttons = new ArrayList<JButton>();
@@ -402,6 +404,17 @@ public class Board implements ActionListener
 			buttons.get(25).setVisible(false);
 		
 		}
+		
+		for(JLabel l:letters)
+		{
+			if(!l.isVisible())
+				gameWon = false;
+		}
+		
+		if(gameWon == true)
+			System.out.println("game won");
+		
+		gameWon = true;
 	}
 
 }
