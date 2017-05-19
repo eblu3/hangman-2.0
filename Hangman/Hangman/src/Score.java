@@ -9,10 +9,10 @@ public class Score
 		correct = 0;
 	}
 	
-	public int getPoints()
+	public String getPoints()
 	{
 		points =  (getCorrect() * 100) - (getMisses() * 50);
-		return points;
+		return points + "";
 	}
 	
 	public int getMisses()
