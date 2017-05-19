@@ -14,6 +14,7 @@ public class InstructionsPage extends JFrame implements ActionListener
 	{
 		setSize(800,800);
 		setLocationRelativeTo(null);
+		
 		//Label
 		JLabel l = new JLabel("Instructions");
 		
@@ -24,8 +25,6 @@ public class InstructionsPage extends JFrame implements ActionListener
 		
 		add(p);
 		p.add(l);
-		
-		setVisible(true);
 		
 		JTextArea instructionsField = new JTextArea();
 		Document instructions = new PlainDocument();
