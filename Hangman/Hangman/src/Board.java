@@ -12,6 +12,7 @@ public class Board implements ActionListener
 	ArrayList<JButton> buttons;
 	ArrayList<JLabel> letters;
 	ArrayList<String> alphabet;
+	JLabel word1, word2;
 	Difficulty d;
 	String word;
 	Hangman h;
@@ -88,7 +89,25 @@ public class Board implements ActionListener
 	
 	private JPanel hangmanBox()
 	{
-		JPanel p = new JPanel(new GridLayout(2,word.length()));
+		JPanel p = new JPanel(new GridLayout(3,word.length() - 1));
+		word1 = new JLabel("Game");
+		word2 = new JLabel("Won");
+		word1.setFont(new Font("ChalkBoard", Font.BOLD, 20));
+		word2.setFont(new Font("ChalkBoard", Font.BOLD, 20));
+		
+		for(int i =0; i < word.length() -1; i++)
+		{
+			if(i == (word.length() / 2) -1)
+				p.add(word1);
+			if(i == (word.length() / 2))
+				p.add(word2);
+			else
+				p.add(new JLabel());
+		}
+		
+		word1.setVisible(false);
+		word2.setVisible(false);
+		
 		p.setPreferredSize(new Dimension(150,150));
 		p.setBackground(new Color(234, 124, 110));
 	
@@ -412,7 +431,11 @@ public class Board implements ActionListener
 		}
 		
 		if(gameWon == true)
+		{
+			word1.setVisible(true);
+			word2.setVisible(true);
 			System.out.println("game won");
+		}
 		
 		gameWon = true;
 	}
