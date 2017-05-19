@@ -14,7 +14,9 @@ public class MainWindow implements ActionListener
     private Board board = new Board();
     
     private JPanel game1, game2, game3, p, keyboard;
-    private JButton b1,b2,b3,b4;
+    private JButton b1,b2,b3,b;
+    private JComboBox<String> difficultySelector;
+    private String[] difficulties = {"Easy", "Medium", "Hard"};
     private String level;
     
     public void addTabs(Container pane) throws FileNotFoundException 
@@ -39,17 +41,19 @@ public class MainWindow implements ActionListener
         b1 = new JButton("Easy");
         b2 = new JButton("Medium");
         b3 = new JButton("Hard");
-        b4 = new JButton("Continue");
+        b = new JButton("Continue");
+        difficultySelector = new JComboBox<String>(difficulties);
 
         b1.setPreferredSize(new Dimension(300, 175));
         b2.setPreferredSize(new Dimension(300, 175));
         b3.setPreferredSize(new Dimension(300, 175));
-        b4.setPreferredSize(new Dimension(300, 175));
+        b.setPreferredSize(new Dimension(300, 175));
         
         p.add(b1);
         p.add(b2);
         p.add(b3);
-        p.add(b4);
+        p.add(difficultySelector);
+        p.add(b);
         p.add(game1);
         p.add(game2);
         p.add(game3);
@@ -58,7 +62,7 @@ public class MainWindow implements ActionListener
         game2.setVisible(false);
         game3.setVisible(false);
         keyboard.setVisible(true);
-        b4.setVisible(false);
+        b.setVisible(false);
  
         JPanel instruct = null;
 		try {
@@ -77,17 +81,22 @@ public class MainWindow implements ActionListener
         b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
-		b4.addActionListener(this);
+		difficultySelector.addActionListener(this);
+		b.addActionListener(this);
     }
     
 	public void actionPerformed(ActionEvent e)
 	{
+		JComboBox<String> difficultySelector = (JComboBox<String>) e.getSource();
+		
+		System.out.println(difficultySelector);
+		
 		if(e.getActionCommand().contentEquals("Easy"))
 		{
 			level = "Easy";
 			b2.setVisible(false);
 			b3.setVisible(false);
-			b4.setVisible(true);
+			b.setVisible(true);
 		}
 		
 		if(e.getActionCommand().contentEquals("Medium"))
@@ -95,7 +104,7 @@ public class MainWindow implements ActionListener
 			level = "Medium";
 			b1.setVisible(false);
 			b3.setVisible(false);
-			b4.setVisible(true);
+			b.setVisible(true);
 		}
 		
 		if(e.getActionCommand().contentEquals("Hard"))
@@ -103,12 +112,12 @@ public class MainWindow implements ActionListener
 			level = "Hard";
 			b2.setVisible(false);
 			b1.setVisible(false);
-			b4.setVisible(true);
+			b.setVisible(true);
 		}
 		
 		if(e.getActionCommand().contentEquals("Continue"))
 		{
-			b4.setVisible(false);
+			b.setVisible(false);
 			//keyboard.setVisible(true);
 			if(level.equals("Easy"))
 			{
