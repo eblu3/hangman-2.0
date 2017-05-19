@@ -50,7 +50,7 @@ public class MainWindow implements ActionListener
         p.add(game2);
         p.add(game3);
         
-     //   level = "Easy";
+        level = "Easy";
 
         game1.setVisible(false);
         game2.setVisible(false);
