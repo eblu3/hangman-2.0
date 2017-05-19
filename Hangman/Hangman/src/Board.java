@@ -81,7 +81,7 @@ public class Board implements ActionListener
 		game.add(hangmanBox());
 		game.add(getKeyboard());
 		//game.add(new JPanel()); //Score
-		//game.add(new JPanel()); //Hangman
+		game.add(new JPanel()); //Hangman
 	
 		return game;
 		}
