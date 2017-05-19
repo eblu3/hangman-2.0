@@ -14,7 +14,7 @@ public class MainWindow implements ActionListener
     private Board board = new Board();
     
     private JPanel game1, game2, game3, p, keyboard;
-    private JButton b1,b2,b3,b;
+    private JButton b;
     private JComboBox<String> difficultySelector;
     private String[] difficulties = {"Easy", "Medium", "Hard"};
     private String level;
@@ -38,20 +38,11 @@ public class MainWindow implements ActionListener
         Board bo3 = new Board();
         game3 = bo3.getHardPanel();
 
-        b1 = new JButton("Easy");
-        b2 = new JButton("Medium");
-        b3 = new JButton("Hard");
         b = new JButton("Continue");
         difficultySelector = new JComboBox<String>(difficulties);
 
-        b1.setPreferredSize(new Dimension(300, 175));
-        b2.setPreferredSize(new Dimension(300, 175));
-        b3.setPreferredSize(new Dimension(300, 175));
         b.setPreferredSize(new Dimension(300, 175));
         
-        p.add(b1);
-        p.add(b2);
-        p.add(b3);
         p.add(difficultySelector);
         p.add(b);
         p.add(game1);
@@ -62,7 +53,6 @@ public class MainWindow implements ActionListener
         game2.setVisible(false);
         game3.setVisible(false);
         keyboard.setVisible(true);
-        b.setVisible(false);
  
         JPanel instruct = null;
 		try {
@@ -78,63 +68,33 @@ public class MainWindow implements ActionListener
  
         pane.add(menu);
         
-        b1.addActionListener(this);
-		b2.addActionListener(this);
-		b3.addActionListener(this);
-		difficultySelector.addActionListener(this);
+        difficultySelector.addActionListener(this);
 		b.addActionListener(this);
     }
     
 	public void actionPerformed(ActionEvent e)
 	{
-		JComboBox<String> difficultySelector = (JComboBox<String>) e.getSource();
-		
-		System.out.println(difficultySelector);
-		
-		if(e.getActionCommand().contentEquals("Easy"))
-		{
-			level = "Easy";
-			b2.setVisible(false);
-			b3.setVisible(false);
-			b.setVisible(true);
-		}
-		
-		if(e.getActionCommand().contentEquals("Medium"))
-		{
-			level = "Medium";
-			b1.setVisible(false);
-			b3.setVisible(false);
-			b.setVisible(true);
-		}
-		
-		if(e.getActionCommand().contentEquals("Hard"))
-		{
-			level = "Hard";
-			b2.setVisible(false);
-			b1.setVisible(false);
-			b.setVisible(true);
-		}
-		
 		if(e.getActionCommand().contentEquals("Continue"))
 		{
 			b.setVisible(false);
+			difficultySelector.setVisible(false);
 			//keyboard.setVisible(true);
 			if(level.equals("Easy"))
 			{
-				b1.setVisible(false);
 				game1.setVisible(true);
 			}
 			if(level.equals("Medium"))
 			{
-				b2.setVisible(false);
 				game2.setVisible(true);
 			}
 			if(level.equals("Hard"))
 			{
-				b3.setVisible(false);
 				game3.setVisible(true);
 			}
-
+		}
+		else
+		{
+			level = (String) difficultySelector.getSelectedItem();
 		}
 	}
 
