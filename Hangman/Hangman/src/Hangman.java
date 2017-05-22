@@ -22,6 +22,7 @@ public class Hangman
 	public JPanel getPanel()
 	{
 		JPanel p = new JPanel();
+		p.setBackground(Color.WHITE);
 		ImageIcon ninja1 = new ImageIcon("ninja.jpg");
 		JLabel nin = new JLabel(ninja1);
 		p.add(nin);
