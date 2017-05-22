@@ -49,6 +49,8 @@ public class InstructionsPage extends JFrame implements ActionListener
 		
 		instructionsField.setDocument(instructions);
 		instructionsField.setEditable(false);
+		instructionsField.setSize(800,800);
+		instructionsField.setMaximumSize(new Dimension(800,800));
 		
 		p.add(instructionsField);
 		

@@ -39,7 +39,7 @@ public class Board implements ActionListener
 		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
 		
 		game.setBackground(new Color(51, 153, 255));
-		game.setPreferredSize(new Dimension(1300,700));
+		game.setPreferredSize(new Dimension(800,800));
 	
 		game.add(hangmanBox());
 		game.add(getKeyboard());
@@ -58,7 +58,7 @@ public class Board implements ActionListener
 		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
 		
 		game.setBackground(new Color(51, 153, 255));
-		game.setPreferredSize(new Dimension(1300,700));
+		game.setPreferredSize(new Dimension(800,800));
 	
 		game.add(hangmanBox());
 		game.add(getKeyboard());
@@ -77,7 +77,7 @@ public class Board implements ActionListener
 		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
 		
 		game.setBackground(new Color(51, 153, 255));
-		game.setPreferredSize(new Dimension(1300,700));
+		game.setPreferredSize(new Dimension(800,800));
 	
 		game.add(hangmanBox());
 		game.add(getKeyboard());

@@ -107,8 +107,8 @@ public class MainWindow implements ActionListener
     {
         //Create and set up the window.
         JFrame frame = new JFrame("HangMan 2.0");
-        frame.setSize(1370,800);
-        frame.setMinimumSize(new Dimension(1370,800));
+        frame.setSize(800,800);
+        frame.setMinimumSize(new Dimension(800,800));
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
