@@ -25,6 +25,6 @@ public class Hangman
 		ImageIcon ninja1 = new ImageIcon("ninja.jpg");
 		JLabel nin = new JLabel(ninja1);
 		p.add(nin);
-		return p;		
+		return p;
 	}
 }

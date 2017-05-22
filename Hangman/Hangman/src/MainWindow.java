@@ -14,7 +14,7 @@ public class MainWindow implements ActionListener
     private Board board = new Board();
     private Hangman h;
     
-    private JPanel game1, game2, game3, p, keyboard;
+    private JPanel game1, game2, game3, buttons, p, keyboard;
     private JButton b;
     private JComboBox<String> difficultySelector;
     private String[] difficulties = {"Easy", "Medium", "Hard"};
@@ -24,9 +24,13 @@ public class MainWindow implements ActionListener
     {
         JTabbedPane menu = new JTabbedPane(); //Creates Menu Pane
 
-        p = new JPanel(); 
+        buttons = new JPanel(); 
+        buttons.setBackground(new Color(153, 255, 204));
+        buttons.setLayout(new GridLayout());
+        buttons.setMinimumSize(new Dimension(200, 200));
+        
+        p = new JPanel();
         p.setBackground(new Color(153, 255, 204));
-        p.setLayout(new FlowLayout());
         
         //Keyboard
         keyboard = board.getKeyboard();
@@ -41,11 +45,11 @@ public class MainWindow implements ActionListener
 
         b = new JButton("Continue");
         difficultySelector = new JComboBox<String>(difficulties);
-
-        b.setPreferredSize(new Dimension(300, 175));
         
-        p.add(difficultySelector);
-        p.add(b);
+        buttons.add(difficultySelector);
+        buttons.add(b);
+        
+        p.add(buttons);
         
         level = "Easy";
 
