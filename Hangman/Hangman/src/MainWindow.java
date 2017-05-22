@@ -46,15 +46,9 @@ public class MainWindow implements ActionListener
         
         p.add(difficultySelector);
         p.add(b);
-        p.add(game1);
-        p.add(game2);
-        p.add(game3);
         
         level = "Easy";
 
-        game1.setVisible(false);
-        game2.setVisible(false);
-        game3.setVisible(false);
         keyboard.setVisible(true);
  
         JPanel instruct = null;
@@ -81,19 +75,24 @@ public class MainWindow implements ActionListener
 		{
 			b.setVisible(false);
 			difficultySelector.setVisible(false);
+			
+			p.setLayout(new BorderLayout());
+			
 			//keyboard.setVisible(true);
 			if(level.equals("Easy"))
 			{
-				game1.setVisible(true);
+				p.add(game1, BorderLayout.CENTER);
 			}
 			if(level.equals("Medium"))
 			{
-				game2.setVisible(true);
+				p.add(game2, BorderLayout.CENTER);
 			}
 			if(level.equals("Hard"))
 			{
-				game3.setVisible(true);
+				p.add(game3, BorderLayout.CENTER);
 			}
+			
+			p.setBackground(new Color(51, 153, 255));
 		}
 		else
 		{
@@ -108,8 +107,8 @@ public class MainWindow implements ActionListener
         //Create and set up the window.
         JFrame frame = new JFrame("HangMan 2.0");
         frame.setSize(800,800);
-        frame.setMinimumSize(new Dimension(800,800));
-        frame.setResizable(false);
+        frame.setMinimumSize(new Dimension(800,600));
+        frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         
