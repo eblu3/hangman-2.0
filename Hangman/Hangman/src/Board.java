@@ -37,14 +37,14 @@ public class Board implements ActionListener
 		word = d.getPhrase();
 		System.out.println(word);
 		
-		JPanel game = new JPanel(new GridLayout()); //Game Consel
+		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
 		
 		game.setBackground(new Color(51, 153, 255));
 		game.setPreferredSize(new Dimension(800,800));
 	
-		//game.add(hangmanBox());
-		//game.add(getKeyboard());
-		//game.add(new JPanel()); //Score
+		game.add(hangmanBox());
+		game.add(getKeyboard());
+		game.add(new JPanel()); //Score
 		game.add(h.getPanel()); //Hangman
 	
 		return game;

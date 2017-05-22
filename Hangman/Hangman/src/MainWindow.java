@@ -15,6 +15,7 @@ public class MainWindow implements ActionListener
     private Hangman h;
     
     private JPanel game1, game2, game3, buttons, p, keyboard;
+    private JLabel welcome;
     private JButton b;
     private JComboBox<String> difficultySelector;
     private String[] difficulties = {"Easy", "Medium", "Hard"};
@@ -23,13 +24,17 @@ public class MainWindow implements ActionListener
     public void addTabs(Container pane) throws FileNotFoundException 
     {
         JTabbedPane menu = new JTabbedPane(); //Creates Menu Pane
-
+        
+        welcome = new JLabel("HangMan 2.0");
+		welcome.setFont(new Font("ChalkBoard", Font.BOLD, 50));
+		
         buttons = new JPanel(); 
         buttons.setBackground(new Color(153, 255, 204));
-        buttons.setLayout(new GridLayout());
+        buttons.setLayout(new FlowLayout());
         buttons.setMinimumSize(new Dimension(200, 200));
         
         p = new JPanel();
+        p.setLayout(new GridLayout());
         p.setBackground(new Color(153, 255, 204));
         
         //Keyboard
@@ -44,12 +49,16 @@ public class MainWindow implements ActionListener
         game3 = bo3.getHardPanel();
 
         b = new JButton("Continue");
+        b.setPreferredSize(new Dimension(300,100));
         difficultySelector = new JComboBox<String>(difficulties);
+        difficultySelector.setPreferredSize(new Dimension(300,100));
         
         buttons.add(difficultySelector);
         buttons.add(b);
         
+        buttons.add(welcome);
         p.add(buttons);
+        
         
         level = "Easy";
 
@@ -79,6 +88,8 @@ public class MainWindow implements ActionListener
 		{
 			b.setVisible(false);
 			difficultySelector.setVisible(false);
+			buttons.setVisible(false);
+			welcome.setVisible(false);
 			
 			p.setLayout(new BorderLayout());
 			
