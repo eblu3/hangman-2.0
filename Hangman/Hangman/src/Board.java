@@ -150,7 +150,7 @@ public class Board implements ActionListener
 			i.addActionListener(this);
 		}
 		
-		gameover = new JLabel("   GAME OVER");
+		gameover = new JLabel("GAME OVER", SwingConstants.CENTER);
 		gameover.setFont(new Font("ChalkBoard", Font.BOLD,40));
 		gameover.setForeground(new Color(0,0,255));
 		
