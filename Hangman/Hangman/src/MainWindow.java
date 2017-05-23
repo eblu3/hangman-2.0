@@ -25,16 +25,15 @@ public class MainWindow implements ActionListener
     {
         JTabbedPane menu = new JTabbedPane(); //Creates Menu Pane
         
-        welcome = new JLabel("HangMan 2.0");
+        welcome = new JLabel("HangMan 2.0", SwingConstants.CENTER);
 		welcome.setFont(new Font("ChalkBoard", Font.BOLD, 50));
-		welcome.setLocation(400,0);
 		
-        buttons = new JPanel(); //Difficuly selector and continue
+        buttons = new JPanel(); //Difficulty selector and continue button
         buttons.setBackground(new Color(153, 255, 204));
         buttons.setMinimumSize(new Dimension(200, 200));
         
         p = new JPanel(); //Entire panel
-        p.setLayout(new GridLayout());
+        p.setLayout(new GridLayout(2,2));
         p.setBackground(new Color(153, 255, 204));
         
         //Keyboard
@@ -53,13 +52,11 @@ public class MainWindow implements ActionListener
         difficultySelector = new JComboBox<String>(difficulties);
         difficultySelector.setPreferredSize(new Dimension(300,100));
         
-        
         buttons.add(difficultySelector);
         buttons.add(b);
      
-      
+        p.add(welcome);
         p.add(buttons);
-        
         
         level = "Easy";
 
