@@ -12,7 +12,6 @@ public class MainWindow implements ActionListener
     
     private InstructionsPage ins = new InstructionsPage();
     private Board board = new Board();
-    private Hangman h;
     
     private JPanel game1, game2, game3, buttons, p, keyboard;
     private JLabel welcome;

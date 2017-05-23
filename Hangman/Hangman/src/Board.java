@@ -2,16 +2,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-import java.util.*;
-
+import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.text.TabSet;
 
 public class Board implements ActionListener
 {
 	private ArrayList<JButton> buttons;
 	private ArrayList<JLabel> letters;
-	private ArrayList<String> alphabet;
 	private JLabel word1, word2, gameover;
 	private JPanel keys;
 	private Difficulty d;
