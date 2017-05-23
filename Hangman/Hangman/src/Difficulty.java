@@ -17,7 +17,7 @@ class Difficulty
 		case "easy": //setting word bank to easy words
 			scan = new Scanner(new File("Easy.dat"));
 			easy = new ArrayList<String>();
-			while(scan.hasNextLine())
+			while(scan.hasNextLine()) //Calling Easy file, filling it into the array
 			{
 				String str = scan.nextLine();
 				easy.add(str);
@@ -27,7 +27,7 @@ class Difficulty
 		case "medium": //setting word bank to medium words
 			scan = new Scanner(new File("Medium.dat"));
 			medium = new ArrayList<String>();
-			while(scan.hasNextLine())
+			while(scan.hasNextLine()) //Calling Medium file, filling it into the array
 			{
 				String str = scan.nextLine();
 				medium.add(str);
@@ -37,7 +37,7 @@ class Difficulty
 		case "hard": //setting word bank to hard words
 			scan = new Scanner(new File("Hard.dat"));
 			hard = new ArrayList<String>();
-			while(scan.hasNextLine())
+			while(scan.hasNextLine())  //Calling Hard file, filling it into the array
 			{
 				String str = scan.nextLine();
 				hard.add(str);

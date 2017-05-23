@@ -14,12 +14,14 @@ public class Board implements ActionListener
 	private Difficulty d;
 	private String word;
 	private Hangman h;
-	boolean gameWon = true;
+	boolean gameWon;
 	
 	public Board()
 	{
 		buttons = new ArrayList<JButton>();
 		letters = new ArrayList<JLabel>();
+		gameWon = true;
+		
 		
 		for(int i = 65; i <= 90; i++) //Creating Alphabet Letters
 		{
@@ -575,6 +577,11 @@ public class Board implements ActionListener
 			word1.setVisible(true);
 			word2.setVisible(true);
 			System.out.println("game won");
+			
+			for(JButton i: buttons)
+			{
+				i.setVisible(false);
+			}
 		}
 		
 		if(h.lost())

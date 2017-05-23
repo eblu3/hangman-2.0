@@ -1,12 +1,11 @@
 import javax.swing.*;
 import javax.swing.text.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class InstructionsPage extends JFrame implements ActionListener
+public class InstructionsPage extends JFrame
 {
 	private static final long serialVersionUID = -8834323742424624104L;
 
@@ -35,7 +34,7 @@ public class InstructionsPage extends JFrame implements ActionListener
 		Scanner file = new Scanner(new File("instructions.txt"));
 		Scanner line;
 		
-		while(file.hasNextLine())
+		while(file.hasNextLine()) //Reading in the Instructions.txt Filer
 		{
 			line = new Scanner(file.nextLine());
 			line.useDelimiter("");
@@ -60,11 +59,5 @@ public class InstructionsPage extends JFrame implements ActionListener
 		p.add(instructionsPanel, BorderLayout.CENTER);
 		
 		return p;
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) 
-	{
-					
 	}
 }

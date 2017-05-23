@@ -5,17 +5,17 @@ import javax.swing.*;
  
 public class Hangman
 {
-	int right, wrong;
-	ArrayList<JLabel> images = new ArrayList<JLabel>();
-	String level;
+	private int wrong;
+	private ArrayList<JLabel> images;
+	private String level;
 	
 	public Hangman(String difficult)
 	{
 		wrong = 0;
 		level = difficult;
+		images =  new ArrayList<JLabel>();
 		
-		
-		if(level.equalsIgnoreCase("easy"))
+		if(level.equalsIgnoreCase("easy")) //Adding ninja images to ArrayList
 		{
 			ImageIcon n1 = new ImageIcon("Ninja1.jpg");
 			images.add(new JLabel(n1));
@@ -39,7 +39,7 @@ public class Hangman
 			images.add(new JLabel(n7));
 		}
 		
-		if(level.equalsIgnoreCase("medium"))
+		if(level.equalsIgnoreCase("medium")) //Adding Cowboy images to ArrayList
 		{
 			
 			ImageIcon c1 = new ImageIcon("Cowboy1.jpg");
@@ -61,34 +61,32 @@ public class Hangman
 			images.add(new JLabel(c6));
 		}
 		
-		if(level.equalsIgnoreCase("hard"))
+		if(level.equalsIgnoreCase("hard")) //Adding Stites images to ArrayList
 		{
 			
 		}
 	}
 	
 	
-	public JPanel getPanel()
+	public JPanel getPanel() //Returns HangMan Box Panel, called in "Board"
 	{
 		JPanel p = new JPanel(new CardLayout());
 		p.setBackground(Color.WHITE);
-
-		for(JLabel i:images)
+		for(JLabel i:images) //Add images to final panel, but all are "invisible"
 		{
 			p.add(i);
 			i.setVisible(false);
-		}
-		
+		}	
 		return p;
 	}
 	
-	public void changeImage()
+	public void changeImage() //Switches layers of the CardLayout
 	{
 		images.get(wrong-1).setVisible(false);
 		images.get(wrong).setVisible(true);
 	}
 	
-	public boolean lost()
+	public boolean lost() //Checks to see if the user is out of lives
 	{
 		if(level.equals("easy") && wrong >= 6)
 			return true;
@@ -98,7 +96,7 @@ public class Hangman
 			return true;
 		return false;
 	}
-	public void addWrong()
+	public void addWrong() //Increments wrong by One. Necessary to see if user will win or lose
 	{
 		wrong += 1;
 	}
