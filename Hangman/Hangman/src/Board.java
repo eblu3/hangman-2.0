@@ -9,13 +9,14 @@ import javax.swing.text.TabSet;
 
 public class Board implements ActionListener
 {
-	ArrayList<JButton> buttons;
-	ArrayList<JLabel> letters;
-	ArrayList<String> alphabet;
-	JLabel word1, word2;
-	Difficulty d;
-	String word;
-	Hangman h;
+	private ArrayList<JButton> buttons;
+	private ArrayList<JLabel> letters;
+	private ArrayList<String> alphabet;
+	private JLabel word1, word2, gameover;
+	private JPanel keys;
+	private Difficulty d;
+	private String word;
+	private Hangman h;
 	boolean gameWon = true;
 	
 	public Board()
@@ -37,14 +38,13 @@ public class Board implements ActionListener
 		word = d.getPhrase();
 		System.out.println(word);
 		
-		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
+		JPanel game = new JPanel(new GridLayout()); //Game Consel
 		
 		game.setBackground(new Color(51, 153, 255));
 		game.setPreferredSize(new Dimension(800,800));
 	
 		game.add(hangmanBox());
 		game.add(getKeyboard());
-		game.add(new JPanel()); //Score
 		game.add(h.getPanel()); //Hangman
 	
 		return game;
@@ -54,17 +54,17 @@ public class Board implements ActionListener
 	{
 		d = new Difficulty("medium");
 		word = d.getPhrase();
+		h = new Hangman("medium");
 		System.out.println(word);
 		 
-		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
+		JPanel game = new JPanel(new GridLayout()); //Game Consel
 		
 		game.setBackground(new Color(51, 153, 255));
 		game.setPreferredSize(new Dimension(800,800));
 	
 		game.add(hangmanBox());
 		game.add(getKeyboard());
-		game.add(new JPanel()); //Score
-		game.add(new JPanel()); //Hangman
+		game.add(h.getPanel()); //Hangman
 	
 		return game;
 	}
@@ -72,18 +72,18 @@ public class Board implements ActionListener
 	public JPanel getHardPanel()throws FileNotFoundException
 	{
 		d = new Difficulty("hard");
+		h = new Hangman("hard");
 		word = d.getPhrase();
 		System.out.println(word);
 		 
-		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
+		JPanel game = new JPanel(new GridLayout()); //Game Consel
 		
 		game.setBackground(new Color(51, 153, 255));
 		game.setPreferredSize(new Dimension(800,800));
 	
 		game.add(hangmanBox());
 		game.add(getKeyboard());
-		//game.add(new JPanel()); //Score
-		game.add(new JPanel()); //Hangman
+		game.add(h.getPanel()); //Hangman
 	
 		return game;
 		}
@@ -116,7 +116,7 @@ public class Board implements ActionListener
 		{
 			JLabel let = new JLabel(word.substring(i,i+1)); 
 			let.setFont(new Font("ChalkBoard", Font.BOLD, 40));
-			//let.setPreferredSize(new Dimension(10,10)); 
+			let.setPreferredSize(new Dimension(5,5)); 
 			letters.add(let);
 		
 			p.add(let);
@@ -128,7 +128,7 @@ public class Board implements ActionListener
 		{
 			JLabel blank = new JLabel("_"); 
 			blank.setFont(new Font("ChalkBoard", Font.BOLD,40));
-			//blank.setPreferredSize(new Dimension(10,10));
+			blank.setPreferredSize(new Dimension(5,5));
 			p.add(blank); 
 		}
 	
@@ -137,24 +137,41 @@ public class Board implements ActionListener
 	
 	public JPanel getKeyboard()
 	{
+		keys = new JPanel(new CardLayout());
+		
 		JPanel keyboard = new JPanel();
 		keyboard.setBackground(new Color(224, 187, 249));
-		keyboard.setPreferredSize(new Dimension(300,300));
+		//keyboard.setPreferredSize(new Dimension(300,300));
 		keyboard.setLayout(new GridLayout(5,4));
 		keyboard.setLocation(600,600);
 		for(JButton i: buttons)
 		{
 			keyboard.add(i);
-			i.setPreferredSize(new Dimension(40,40));
-			i.setFont(new Font("ChalkBoard", Font.BOLD, 24)); 
+			//i.setPreferredSize(new Dimension(30,30));
+			i.setFont(new Font("ChalkBoard", Font.BOLD, 20)); 
 			i.addActionListener(this);
 		}
-		return keyboard;
+		
+		gameover = new JLabel("GAMEOVER");
+		gameover.setFont(new Font("ChalkBoard", Font.BOLD,40));
+		gameover.setForeground(Color.CYAN);
+		
+		keys.add(gameover);
+		keys.add(keyboard);
+		keyboard.setVisible(true);
+		gameover.setVisible(false);
+		
+		return keys;
 	}
 	public void actionPerformed(ActionEvent e) 
 	{
 		if(e.getActionCommand().equals("A"))
 		{	
+			if(word.indexOf("a") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("a") >= 0)
 			{
 				letters.get(word.indexOf("a")).setVisible(true);
@@ -165,6 +182,11 @@ public class Board implements ActionListener
 	
 		if(e.getActionCommand().equals("B"))
 		{
+			if(word.indexOf("b") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("b") >= 0)
 			{
 				letters.get(word.indexOf("b")).setVisible(true);
@@ -176,6 +198,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("C"))
 		{	
+			if(word.indexOf("c") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("c") >= 0)
 			{
 				letters.get(word.indexOf("c")).setVisible(true);
@@ -186,6 +213,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("D"))
 		{	
+			if(word.indexOf("d") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("d") >= 0)
 			{
 				letters.get(word.indexOf("d")).setVisible(true);
@@ -198,6 +230,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("E"))
 		{	
+			if(word.indexOf("e") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("e") >= 0)
 			{
 				letters.get(word.indexOf("e")).setVisible(true);
@@ -210,6 +247,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("F"))
 		{	
+			if(word.indexOf("f") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("f") >= 0)
 			{
 				letters.get(word.indexOf("f")).setVisible(true);
@@ -221,6 +263,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("G"))
 		{	
+			if(word.indexOf("g") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("g") >= 0)
 			{
 				letters.get(word.indexOf("g")).setVisible(true);
@@ -232,6 +279,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("H"))
 		{	
+			if(word.indexOf("h") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("h") >= 0)
 			{
 				letters.get(word.indexOf("h")).setVisible(true);
@@ -242,6 +294,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("I"))
 		{	
+			if(word.indexOf("i") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("i") >= 0)
 			{
 				letters.get(word.indexOf("i")).setVisible(true);
@@ -252,6 +309,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("J"))
 		{	
+			if(word.indexOf("j") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("j") >= 0)
 			{
 				letters.get(word.indexOf("j")).setVisible(true);
@@ -263,6 +325,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("K"))
 		{	
+			if(word.indexOf("k") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("k") >= 0)
 			{
 				letters.get(word.indexOf("k")).setVisible(true);
@@ -274,6 +341,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("L"))
 		{	
+			if(word.indexOf("l") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("l") >= 0)
 			{
 				letters.get(word.indexOf("l")).setVisible(true);
@@ -284,6 +356,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("M"))
 		{	
+			if(word.indexOf("m") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("m") >= 0)
 			{
 				letters.get(word.indexOf("m")).setVisible(true);
@@ -294,6 +371,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("N"))
 		{	
+			if(word.indexOf("n") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("n") >= 0)
 			{
 				letters.get(word.indexOf("n")).setVisible(true);
@@ -304,10 +386,15 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("O"))
 		{	
-		while(word.indexOf("o") >= 0)
-		{
-			letters.get(word.indexOf("o")).setVisible(true);
-			word = word.substring(0, word.indexOf("o")) + "!" + word.substring(word.indexOf("o") + 1);
+			if(word.indexOf("o") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
+			while(word.indexOf("o") >= 0)
+			{
+				letters.get(word.indexOf("o")).setVisible(true);
+				word = word.substring(0, word.indexOf("o")) + "!" + word.substring(word.indexOf("o") + 1);
 		 
 			}	
 			buttons.get(14).setVisible(false);
@@ -315,6 +402,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("P"))
 		{	
+			if(word.indexOf("p") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("p") >= 0)
 			{
 			letters.get(word.indexOf("p")).setVisible(true);
@@ -325,6 +417,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("Q"))
 		{	
+			if(word.indexOf("q") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("q") >= 0)
 			{
 				letters.get(word.indexOf("q")).setVisible(true);
@@ -335,6 +432,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("R"))
 		{	
+			if(word.indexOf("r") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("r") >= 0)
 			{
 					letters.get(word.indexOf("r")).setVisible(true);
@@ -345,6 +447,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("S"))
 		{	
+			if(word.indexOf("s") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("s") >= 0)
 			{
 				letters.get(word.indexOf("s")).setVisible(true);
@@ -355,6 +462,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("T"))
 		{
+			if(word.indexOf("t") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("t") >= 0)
 			{
 				letters.get(word.indexOf("t")).setVisible(true);
@@ -365,6 +477,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("U"))
 		{	
+			if(word.indexOf("u") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("u") >= 0)
 			{
 				letters.get(word.indexOf("u")).setVisible(true);
@@ -376,6 +493,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("V"))
 		{
+			if(word.indexOf("v") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("v") >= 0)
 			{
 				letters.get(word.indexOf("v")).setVisible(true);
@@ -386,6 +508,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("W"))
 		{
+			if(word.indexOf("w") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("w") >= 0)
 			{
 				letters.get(word.indexOf("w")).setVisible(true);
@@ -395,17 +522,29 @@ public class Board implements ActionListener
 		}
 		
 		if(e.getActionCommand().equals("X"))
-		{	
+		{			
+			if(word.indexOf("x") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("x") >= 0)
 			{
 				letters.get(word.indexOf("x")).setVisible(true);
 				word = word.substring(0, word.indexOf("x")) + "!" + word.substring(word.indexOf("x") + 1);
 			}	
+			
+			
 			buttons.get(23).setVisible(false);
 		}
 		
 		if(e.getActionCommand().equals("Y"))
 		{	
+			if(word.indexOf("y") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("y") >= 0)
 			{
 				letters.get(word.indexOf("y")).setVisible(true);
@@ -416,6 +555,11 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("Z"))
 		{
+			if(word.indexOf("z") < 0)
+			{
+				h.addWrong();
+				h.changeImage();
+			}
 			while(word.indexOf("z") >= 0)
 			{
 				letters.get(word.indexOf("z")).setVisible(true);
@@ -436,6 +580,20 @@ public class Board implements ActionListener
 			word1.setVisible(true);
 			word2.setVisible(true);
 			System.out.println("game won");
+		}
+		
+		if(h.lost())
+		{
+			for(JButton i: buttons)
+			{
+				i.setVisible(false);
+			}
+			for(JLabel i: letters)
+			{
+				i.setVisible(true);
+			}
+			
+			gameover.setVisible(true);
 		}
 		
 		gameWon = true;

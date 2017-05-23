@@ -27,13 +27,13 @@ public class MainWindow implements ActionListener
         
         welcome = new JLabel("HangMan 2.0");
 		welcome.setFont(new Font("ChalkBoard", Font.BOLD, 50));
+		welcome.setLocation(400,0);
 		
-        buttons = new JPanel(); 
+        buttons = new JPanel(); //Difficuly selector and continue
         buttons.setBackground(new Color(153, 255, 204));
-        buttons.setLayout(new FlowLayout());
         buttons.setMinimumSize(new Dimension(200, 200));
         
-        p = new JPanel();
+        p = new JPanel(); //Entire panel
         p.setLayout(new GridLayout());
         p.setBackground(new Color(153, 255, 204));
         
@@ -53,10 +53,11 @@ public class MainWindow implements ActionListener
         difficultySelector = new JComboBox<String>(difficulties);
         difficultySelector.setPreferredSize(new Dimension(300,100));
         
+        
         buttons.add(difficultySelector);
         buttons.add(b);
-        
-        buttons.add(welcome);
+     
+      
         p.add(buttons);
         
         
@@ -84,7 +85,7 @@ public class MainWindow implements ActionListener
     
 	public void actionPerformed(ActionEvent e)
 	{
-		if(e.getActionCommand().contentEquals("Continue"))
+		if(e.getActionCommand().equals("Continue"))
 		{
 			b.setVisible(false);
 			difficultySelector.setVisible(false);
@@ -122,7 +123,7 @@ public class MainWindow implements ActionListener
         //Create and set up the window.
         JFrame frame = new JFrame("HangMan 2.0");
         frame.setSize(800,800);
-        frame.setMinimumSize(new Dimension(800,600));
+        frame.setMinimumSize(new Dimension(1000,800));
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
