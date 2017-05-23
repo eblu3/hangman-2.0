@@ -1,12 +1,9 @@
 import java.awt.*;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
+
  
-public class Hangman implements ActionListener
+public class Hangman
 {
 	int right, wrong;
 	ArrayList<JLabel> images = new ArrayList<JLabel>();
@@ -104,15 +101,5 @@ public class Hangman implements ActionListener
 	public void addWrong()
 	{
 		wrong += 1;
-	}
-
-
-	@Override
-	public void actionPerformed(ActionEvent e) 
-	{
-		if(e.getActionCommand().equals("A"))
-		{
-			changeImage();
-		}
 	}
 }

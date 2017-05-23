@@ -141,20 +141,18 @@ public class Board implements ActionListener
 		
 		JPanel keyboard = new JPanel();
 		keyboard.setBackground(new Color(224, 187, 249));
-		//keyboard.setPreferredSize(new Dimension(300,300));
 		keyboard.setLayout(new GridLayout(5,4));
 		keyboard.setLocation(600,600);
 		for(JButton i: buttons)
 		{
 			keyboard.add(i);
-			//i.setPreferredSize(new Dimension(30,30));
 			i.setFont(new Font("ChalkBoard", Font.BOLD, 20)); 
 			i.addActionListener(this);
 		}
 		
-		gameover = new JLabel("GAMEOVER");
+		gameover = new JLabel("   GAME OVER");
 		gameover.setFont(new Font("ChalkBoard", Font.BOLD,40));
-		gameover.setForeground(Color.CYAN);
+		gameover.setForeground(new Color(0,0,255));
 		
 		keys.add(gameover);
 		keys.add(keyboard);
