@@ -25,6 +25,8 @@ public class Board implements ActionListener
 	{
 		buttons = new ArrayList<JButton>();
 		letters = new ArrayList<JLabel>();
+		gameWon = true;
+		
 		
 		map.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		font = font.deriveFont(map);
@@ -266,6 +268,11 @@ public class Board implements ActionListener
 		if(gameWon == true)
 		{
 			System.out.println("game won");
+			
+			for(JButton i: buttons)
+			{
+				i.setVisible(false);
+			}
 		}
 		
 		if(h.lost())
