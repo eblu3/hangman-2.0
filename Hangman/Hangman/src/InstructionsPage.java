@@ -16,16 +16,16 @@ public class InstructionsPage extends JFrame
 		
 		//Label
 		JLabel l = new JLabel("Instructions");
-		l.setFont(new Font("ChalkBoard", Font.BOLD, 20));
+		l.setFont(new Font("ChalkBoard", Font.BOLD, 50));
 		
 		//Main panel
 		JPanel p = new JPanel();
-		p.setBackground(new Color(255, 163, 26));
+		p.setBackground(new Color(198,255,26));
 		
 		//Instructions panel
 		JPanel instructionsPanel = new JPanel();
 		instructionsPanel.setLayout(new BorderLayout());
-		instructionsPanel.setBackground(new Color(255, 163, 26));
+		instructionsPanel.setBackground(new Color(198,255,26));
 		add(instructionsPanel);
 		
 		JTextArea instructionsField = new JTextArea();
@@ -51,7 +51,9 @@ public class InstructionsPage extends JFrame
 		
 		instructionsField.setDocument(instructions);
 		instructionsField.setEditable(false);
-		instructionsField.setMaximumSize(new Dimension(500,500));
+		instructionsField.setPreferredSize(new Dimension(800,800));
+		instructionsField.setFont(new Font("ChalkBoard", Font.PLAIN, 20));
+		instructionsField.setBackground(new Color(198,255,26));
 		
 		instructionsPanel.add(l, BorderLayout.PAGE_START);
 		instructionsPanel.add(instructionsField, BorderLayout.CENTER);
