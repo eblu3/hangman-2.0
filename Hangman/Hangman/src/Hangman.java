@@ -17,7 +17,7 @@ public class Hangman
 	{
 		wrong = 0;
 		level = difficult;
-		images =  new ArrayList<JLabel>();
+		images =  new ArrayList<JLabel>(); //Array of correct images, based on level
 		
 		if(level.equalsIgnoreCase("easy")) //Adding ninja images to ArrayList
 		{
@@ -89,6 +89,7 @@ public class Hangman
 	
 	/**
 	 * returns hangman box panel
+	 * sets the visibily of the images to false
 	 * @return hangman box panel
 	 */
 	public JPanel getPanel()
@@ -106,14 +107,14 @@ public class Hangman
 	/**
 	 * switches layers of card layout
 	 */
-	public void changeImage()
+	public void changeImage() 
 	{
 		images.get(wrong-1).setVisible(false);
 		images.get(wrong).setVisible(true);
 	}
 	
 	/**
-	 * checks if player has lost
+	 * checks if player has ran out of lives, and lost
 	 * @return false if the player has not lost, true otherwise
 	 */
 	public boolean lost()

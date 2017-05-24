@@ -39,13 +39,13 @@ public class Board implements ActionListener
 	 */
 	public JPanel getEasyPanel()throws FileNotFoundException
 	{
-		d = new Difficulty("easy");
+		d = new Difficulty("easy"); //calling other classes
 		h = new Hangman("easy");
 		word = d.getPhrase();
 		
-		JPanel game = new JPanel(new GridLayout(2,2)); //Game Consel
-		JPanel key = new JPanel(new GridLayout(1,1));
-		JPanel top = new JPanel(new GridLayout(1,2));
+		JPanel game = new JPanel(new GridLayout(2,2)); //Game Panel 
+		JPanel key = new JPanel(new GridLayout(1,1)); //Keyboard
+		JPanel top = new JPanel(new GridLayout(1,2)); //Hangman Box and Images
 		
 		game.setBackground(new Color(51, 153, 255));
 	
@@ -121,7 +121,7 @@ public class Board implements ActionListener
 	 */
 	private JPanel hangmanBox()
 	{
-		int spaces = word.length() + 4;
+		int spaces = word.length() + 4; //Formatting 
 		JPanel p = new JPanel(new GridLayout(spaces,1)); //Entire Hangman Box
 		
 		JPanel winner = new JPanel(new GridLayout(1,1)); //Game Won panel
@@ -132,7 +132,7 @@ public class Board implements ActionListener
 		phrase.setBackground(new Color(153,204,255));
 		blanks.setBackground(new Color(153,204,255));
 		
-		word1 = new JLabel("THE CORRECT WORD IS", SwingConstants.CENTER);
+		word1 = new JLabel("THE CORRECT WORD IS", SwingConstants.CENTER); //Appears when the user wins or loses
 		winner.add(word1, SwingConstants.CENTER);
 		word1.setVisible(false);
 		word1.setFont(new Font("ChalkBoard", Font.BOLD, 30));
@@ -141,7 +141,7 @@ public class Board implements ActionListener
 		p.setPreferredSize(new Dimension(150,150));
 		p.setBackground(new Color(153,204,255));
 	
-		for(int i = -2; i < word.length() + 2; i++)
+		for(int i = -2; i < word.length() + 2; i++) //Adding Letters of Actual word to Panel
 		{
 			JLabel let;
 			if(i < word.length() && i > -1)
@@ -157,7 +157,7 @@ public class Board implements ActionListener
 		
 		}
 	
-		for(int i = -2; i < word.length() + 2; i++)
+		for(int i = -2; i < word.length() + 2; i++) //Adding Blanks for every letter in the phrase
 		{
 			JLabel space;
 			if(i < word.length() && i > -1)
@@ -188,14 +188,15 @@ public class Board implements ActionListener
 	 */
 	public JPanel getKeyboard()
 	{
-		keys = new JPanel(new CardLayout());
+		keys = new JPanel(new CardLayout()); //Keyboard includs 
 		
 		JPanel keyboard = new JPanel();
 		keyboard.setBackground(new Color(153,204,255));
 		keyboard.setPreferredSize(new Dimension(300,300));
 		keyboard.setLayout(new GridLayout(5,4));
 		keyboard.setLocation(600,600);
-		for(JButton i: buttons)
+		
+		for(JButton i: buttons) //Calls array of entire alphabet, adds to panel
 		{
 			keyboard.add(i);
 			i.setPreferredSize(new Dimension(40,40));

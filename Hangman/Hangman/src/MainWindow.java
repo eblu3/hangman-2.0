@@ -56,16 +56,19 @@ public class MainWindow implements ActionListener
         difficultySelector = new JComboBox<String>(difficulties);
         difficultySelector.setPreferredSize(new Dimension(300,100));
         
+        //Buttons Panel additions
         buttons.add(difficultySelector);
         buttons.add(b);
      
+        //Adding to final panel
         p.add(welcome);
         p.add(buttons);
         
-        level = "Easy";
+        level = "Easy"; //Default level, can be changed in the difficultySelectory 
 
         keyboard.setVisible(true);
  
+        //Necessary to prevent errors
         JPanel instruct = null;
 		try {
 			instruct = ins.getPanel();
@@ -95,7 +98,8 @@ public class MainWindow implements ActionListener
 			
 			p.setLayout(new BorderLayout());
 
-			if(level.equals("Easy"))
+			//Adds desired game panel 
+			if(level.equals("Easy")) 
 			{
 				p.add(game1, BorderLayout.CENTER);
 			}
