@@ -28,12 +28,12 @@ public class MainWindow implements ActionListener
 		welcome.setFont(new Font("ChalkBoard", Font.BOLD, 50));
 		
         buttons = new JPanel(); //Difficulty selector and continue button
-        buttons.setBackground(new Color(153, 255, 204));
+        buttons.setBackground(new Color(0, 204, 204));
         buttons.setMinimumSize(new Dimension(200, 200));
         
         p = new JPanel(); //Entire panel
         p.setLayout(new GridLayout(2,2));
-        p.setBackground(new Color(153, 255, 204));
+        p.setBackground(new Color(0, 204, 204));
         
         //Keyboard
         keyboard = board.getKeyboard();
@@ -89,8 +89,7 @@ public class MainWindow implements ActionListener
 			welcome.setVisible(false);
 			
 			p.setLayout(new BorderLayout());
-			
-			//keyboard.setVisible(true);
+
 			if(level.equals("Easy"))
 			{
 				p.add(game1, BorderLayout.CENTER);
@@ -103,8 +102,6 @@ public class MainWindow implements ActionListener
 			{
 				p.add(game3, BorderLayout.CENTER);
 			}
-			
-			p.setBackground(new Color(51, 153, 255));
 		}
 		else
 		{
