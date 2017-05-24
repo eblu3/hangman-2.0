@@ -164,21 +164,21 @@ public class Board implements ActionListener
 	}
 	public void actionPerformed(ActionEvent e) 
 	{
-		String input = e.getActionCommand().toLowerCase();
+		String input = e.getActionCommand().toLowerCase(); //changes letter of button clicked to lowercase, makes it compatible with all methods
 		
-		if(word.indexOf(input) < 0)
+		if(word.indexOf(input) < 0) //if button clicked is not in word
 		{
 			h.addWrong();
 			h.changeImage();
 		}
 		
-		while(word.indexOf(input) >= 0)
+		while(word.indexOf(input) >= 0) //if button clicked is in word (IN PROGRESS)
 		{
 			letters.get(word.indexOf(input)).setVisible(false);
 			word = word.substring(0, word.indexOf(input)) + "!" + word.substring(word.indexOf(input)+1);
 		}
 		
-		switch(input)
+		switch(input) //making buttons disappear on click
 		{
 		case "a":
 			buttons.get(0).setVisible(false);
@@ -269,10 +269,10 @@ public class Board implements ActionListener
 		{
 			System.out.println("game won");
 			
-			for(JButton i: buttons)
-			{
-				i.setVisible(false);
-			}
+//			for(JButton i: buttons)
+//			{
+//				i.setVisible(false);
+//			}
 		}
 		
 		if(h.lost())
