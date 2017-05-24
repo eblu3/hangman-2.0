@@ -9,6 +9,10 @@ public class Hangman
 	private ArrayList<JLabel> images;
 	private String level;
 	
+	/**
+	 * constructs Hangman with specified difficulty
+	 * @param difficulty
+	 */
 	public Hangman(String difficult)
 	{
 		wrong = 0;
@@ -83,8 +87,11 @@ public class Hangman
 		}
 	}
 	
-	
-	public JPanel getPanel() //Returns HangMan Box Panel, called in "Board"
+	/**
+	 * returns hangman box panel
+	 * @return hangman box panel
+	 */
+	public JPanel getPanel()
 	{
 		JPanel p = new JPanel(new CardLayout());
 		p.setBackground(Color.WHITE);
@@ -96,13 +103,20 @@ public class Hangman
 		return p;
 	}
 	
-	public void changeImage() //Switches layers of the CardLayout
+	/**
+	 * switches layers of card layout
+	 */
+	public void changeImage()
 	{
 		images.get(wrong-1).setVisible(false);
 		images.get(wrong).setVisible(true);
 	}
 	
-	public boolean lost() //Checks to see if the user is out of lives
+	/**
+	 * checks if player has lost
+	 * @return false if the player has not lost, true otherwise
+	 */
+	public boolean lost()
 	{
 		if(level.equals("easy") && wrong >= 6)
 			return true;
@@ -112,7 +126,11 @@ public class Hangman
 			return true;
 		return false;
 	}
-	public void addWrong() //Increments wrong by One. Necessary to see if user will win or lose
+	
+	/**
+	 * increments wrong by 1
+	 */
+	public void addWrong()
 	{
 		wrong += 1;
 	}

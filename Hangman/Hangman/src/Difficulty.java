@@ -8,6 +8,11 @@ class Difficulty
 	ArrayList<String> easy, medium, hard;
 	String level;
 	
+	/**
+	 * sets difficulty to level defined by choice
+	 * @param choice
+	 * @throws FileNotFoundException
+	 */
 	public Difficulty(String choice) throws FileNotFoundException
 	{
 		level = choice;
@@ -49,7 +54,11 @@ class Difficulty
 		}
 	}
 	
-	public String getPhrase() //Generating a random Phrase
+	/**
+	 * generates a random phrase from the .dat file of a chosen difficulty defined in the constructor
+	 * @return a String containing a random phrase
+	 */
+	public String getPhrase()
 	{
 		int phrase = (int)(Math.random() * 79);
 		

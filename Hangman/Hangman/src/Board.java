@@ -5,20 +5,21 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 import javax.swing.*;
-import javax.swing.text.TabSet;
 
 public class Board implements ActionListener
 {
 	private ArrayList<JButton> buttons;
 	private ArrayList<JLabel> letters;
-	private ArrayList<String> alphabet;
-	private JLabel word1, word2, gameover, winner;
+	private JLabel word1, gameover, winner;
 	private JPanel keys;
 	private Difficulty d;
 	private String word;
 	private Hangman h;
 	boolean gameWon = true;
 	
+	/**
+	 * constructs Board with default parameters
+	 */
 	public Board()
 	{
 		buttons = new ArrayList<JButton>();
@@ -31,6 +32,11 @@ public class Board implements ActionListener
 		}
 	}
 	
+	/**
+	 * returns easy board
+	 * @return easy board
+	 * @throws FileNotFoundException
+	 */
 	public JPanel getEasyPanel()throws FileNotFoundException
 	{
 		d = new Difficulty("easy");
@@ -51,10 +57,14 @@ public class Board implements ActionListener
 		game.add(top);
 		game.add(key);
 	
-		System.out.println(word);
 		return game;
 	}
-		
+	
+	/**
+	 * returns medium board	
+	 * @return medium board
+	 * @throws FileNotFoundException
+	 */
 	public JPanel getMediumPanel()throws FileNotFoundException
 	{
 		d = new Difficulty("medium");
@@ -77,6 +87,11 @@ public class Board implements ActionListener
 		return game;
 	}
 	
+	/**
+	 * returns hard board
+	 * @return hard board
+	 * @throws FileNotFoundException
+	 */
 	public JPanel getHardPanel()throws FileNotFoundException
 	{
 		d = new Difficulty("hard");
@@ -100,6 +115,10 @@ public class Board implements ActionListener
 		return game;
 	}
 	
+	/**
+	 * returns entire board
+	 * @return entire board
+	 */
 	private JPanel hangmanBox()
 	{
 		int spaces = word.length() + 4;
@@ -163,6 +182,10 @@ public class Board implements ActionListener
 		return p;
 	}
 	
+	/**
+	 * returns keyboard
+	 * @return keyboard
+	 */
 	public JPanel getKeyboard()
 	{
 		keys = new JPanel(new CardLayout());

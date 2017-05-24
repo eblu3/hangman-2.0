@@ -1,0 +1,5 @@
+Credits
+
+Claire Greenwell: Design, presentation, some of the initial GUI
+Mya Mahaley: Most of the GUI, keyboard, work outside of class
+Elliott Saltar: Backend work, proofreading and documentation

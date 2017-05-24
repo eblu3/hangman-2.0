@@ -9,6 +9,12 @@ public class InstructionsPage extends JFrame
 {
 	private static final long serialVersionUID = -8834323742424624104L;
 
+	/**
+	 * constructs and returns instructions panel
+	 * @return instructions panel
+	 * @throws FileNotFoundException
+	 * @throws BadLocationException
+	 */
 	public JPanel getPanel() throws FileNotFoundException, BadLocationException
 	{
 		setSize(800,800);

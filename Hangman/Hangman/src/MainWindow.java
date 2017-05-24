@@ -20,6 +20,11 @@ public class MainWindow implements ActionListener
     private String[] difficulties = {"Easy", "Medium", "Hard"};
     private String level;
     
+    /**
+     * adds tabs and content to main window
+     * @param pane
+     * @throws FileNotFoundException
+     */
     public void addTabs(Container pane) throws FileNotFoundException 
     {
         JTabbedPane menu = new JTabbedPane(); //Creates Menu Pane
@@ -111,7 +116,10 @@ public class MainWindow implements ActionListener
 		}
 	}
 
-    public static void show()
+    /**
+     * shows window
+     */
+	public static void show()
     {
         //Create and set up the window.
         JFrame frame = new JFrame("HangMan 2.0");
