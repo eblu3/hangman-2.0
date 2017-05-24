@@ -179,11 +179,11 @@ public class Board implements ActionListener
 			i.addActionListener(this);
 		}
 		
-		gameover = new JLabel("GAMEOVER", SwingConstants.CENTER);
+		gameover = new JLabel("GAME OVER", SwingConstants.CENTER);
 		gameover.setFont(new Font("ChalkBoard", Font.BOLD,60));
 		gameover.setForeground(Color.BLACK);
 		
-		winner = new JLabel("CONGRAGULATIONS, YOU WIN!", SwingConstants.CENTER);
+		winner = new JLabel("YOU WIN", SwingConstants.CENTER);
 		winner.setFont(new Font("ChalkBoard", Font.BOLD,60));
 		winner.setForeground(Color.BLACK);
 		
