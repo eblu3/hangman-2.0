@@ -117,6 +117,7 @@ public class Board implements ActionListener
 		winner.add(word1, SwingConstants.CENTER);
 		word1.setVisible(false);
 		word1.setFont(new Font("ChalkBoard", Font.BOLD, 30));
+		word1.setForeground(new Color(204,0,153));
 		
 		p.setPreferredSize(new Dimension(150,150));
 		p.setBackground(new Color(153,204,255));
@@ -181,11 +182,11 @@ public class Board implements ActionListener
 		
 		gameover = new JLabel("GAME OVER", SwingConstants.CENTER);
 		gameover.setFont(new Font("ChalkBoard", Font.BOLD,60));
-		gameover.setForeground(Color.BLACK);
+		gameover.setForeground(new Color(204,0,153));
 		
 		winner = new JLabel("YOU WIN", SwingConstants.CENTER);
 		winner.setFont(new Font("ChalkBoard", Font.BOLD,60));
-		winner.setForeground(Color.BLACK);
+		winner.setForeground(new Color(204,0,153));
 		
 		keys.add(gameover);
 		keys.add(winner);

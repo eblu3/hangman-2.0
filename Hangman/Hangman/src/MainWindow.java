@@ -117,7 +117,7 @@ public class MainWindow implements ActionListener
         JFrame frame = new JFrame("HangMan 2.0");
         frame.setSize(800,800);
         frame.setMinimumSize(new Dimension(1000,800));
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         
