@@ -57,13 +57,29 @@ public class Hangman
 			ImageIcon c5 = new ImageIcon("Cowboy5.jpg");
 			images.add(new JLabel(c5));
 			
-			ImageIcon c6 = new ImageIcon("Cowboy6.jpg");
+			ImageIcon c6 = new ImageIcon("Cowboy7.jpg");
 			images.add(new JLabel(c6));
 		}
 		
 		if(level.equalsIgnoreCase("hard")) //Adding Stites images to ArrayList
 		{
+			ImageIcon s1 = new ImageIcon("stites1.jpg");
+			images.add(new JLabel(s1));
 			
+			ImageIcon s2 = new ImageIcon("stites2.jpg");
+			images.add(new JLabel(s2));
+			
+			ImageIcon s3 = new ImageIcon("stites3.jpg");
+			images.add(new JLabel(s3));
+			
+			ImageIcon s4 = new ImageIcon("stites4.jpg");
+			images.add(new JLabel(s4));
+			
+			ImageIcon s5 = new ImageIcon("stites5.jpg");
+			images.add(new JLabel(s5));
+			
+			ImageIcon s6 = new ImageIcon("stites7.jpg");
+			images.add(new JLabel(s6));
 		}
 	}
 	
