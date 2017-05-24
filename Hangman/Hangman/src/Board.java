@@ -142,7 +142,7 @@ public class Board implements ActionListener
 		{
 			JLabel space;
 			if(i < word.length() && i > -1)
-				space = new JLabel("-"); 
+				space = new JLabel("_"); 
 			else
 				space = new JLabel();
 			space.setFont(new Font("ChalkBoard", Font.BOLD,40));

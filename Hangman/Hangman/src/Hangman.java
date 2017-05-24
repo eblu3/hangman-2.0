@@ -57,7 +57,7 @@ public class Hangman
 			ImageIcon c5 = new ImageIcon("Cowboy5.jpg");
 			images.add(new JLabel(c5));
 			
-			ImageIcon c6 = new ImageIcon("Cowboy7.jpg");
+			ImageIcon c6 = new ImageIcon("Cowboy6.jpg");
 			images.add(new JLabel(c6));
 		}
 		
