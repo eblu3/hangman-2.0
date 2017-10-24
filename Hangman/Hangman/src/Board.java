@@ -242,9 +242,7 @@ class Board implements ActionListener
 				word = word.substring(0, word.indexOf(input)) + "!" + word.substring(word.indexOf(input) + 1);
 			}
 			
-			char[] ch = e.getActionCommand().toCharArray();
-			
-			buttons.get((int) ch[0] - 65).setVisible(false);
+			buttons.get((int) input.charAt(0) - 97).setVisible(false);
 		}
 		
 		for(JLabel l:letters)
