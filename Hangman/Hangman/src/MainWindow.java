@@ -126,10 +126,15 @@ class MainWindow implements ActionListener
 
     /**
      * shows window
+     * @throws UnsupportedLookAndFeelException 
+     * @throws IllegalAccessException 
+     * @throws InstantiationException 
+     * @throws ClassNotFoundException 
      */
-	public static void show()
+	public static void show() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException
     {
         //Create and set up the window.
+		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         JFrame frame = new JFrame("HangMan 2.0");
         frame.setSize(800,800);
         frame.setMinimumSize(new Dimension(1000,800));

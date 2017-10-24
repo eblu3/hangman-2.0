@@ -1,0 +1,17 @@
+Welcome to HangMan 2.0! If this is your first time 
+playing please read these simple instructions. The point of HangMan 2.0 
+is to guess the phrase given before your hangman has been completely hung. 
+You'll be given a full keyboard of letters to select. Choose each letter wisely,
+you won't have a lot of room for mistakes. If you guess a letter that is not 
+in the word, a part of the hangman will be added to the board. If you guess 
+a letter that happens to be in the word or phrase no pieces will be added
+to the hangman.	
+
+HangMan 2.0 has several levels to choose from.
+
+Easy
+   -Has 7 attempts to hang a ninja
+Medium
+   -Has 6 attempts to hang a cowboy
+Hard
+   -Has 6 attempts to hang Mr.Stites

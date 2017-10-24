@@ -20,7 +20,7 @@ class Difficulty
 		Scanner scan;
 		switch (choice.toLowerCase()) {
 			case "easy": //setting word bank to easy words
-				scan = new Scanner(new File("../assets/data/Easy.dat"));
+				scan = new Scanner(new File("Easy.dat"));
 				easy = new ArrayList<>();
 				while (scan.hasNextLine()) //Calling Easy file, filling it into the array
 				{
