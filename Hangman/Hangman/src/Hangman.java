@@ -2,8 +2,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
- 
-public class Hangman
+
+class Hangman
 {
 	private int wrong;
 	private ArrayList<JLabel> images;
@@ -11,13 +11,12 @@ public class Hangman
 	
 	/**
 	 * constructs Hangman with specified difficulty
-	 * @param difficulty
 	 */
 	public Hangman(String difficult)
 	{
 		wrong = 0;
 		level = difficult;
-		images =  new ArrayList<JLabel>(); //Array of correct images, based on level
+		images = new ArrayList<>(); //Array of correct images, based on level
 		
 		if(level.equalsIgnoreCase("easy")) //Adding ninja images to ArrayList
 		{

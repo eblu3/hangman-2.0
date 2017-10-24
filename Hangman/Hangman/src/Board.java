@@ -6,24 +6,23 @@ import java.util.*;
 
 import javax.swing.*;
 
-public class Board implements ActionListener
+class Board implements ActionListener
 {
 	private ArrayList<JButton> buttons;
 	private ArrayList<JLabel> letters;
 	private JLabel word1, gameover, winner;
-	private JPanel keys;
 	private Difficulty d;
 	private String word;
 	private Hangman h;
-	boolean gameWon = true;
+	private boolean gameWon = true;
 	
 	/**
 	 * constructs Board with default parameters
 	 */
 	public Board()
 	{
-		buttons = new ArrayList<JButton>();
-		letters = new ArrayList<JLabel>();
+		buttons = new ArrayList<>();
+		letters = new ArrayList<>();
 		
 		for(int i = 65; i <= 90; i++) //Creating Alphabet Letters
 		{
@@ -188,7 +187,7 @@ public class Board implements ActionListener
 	 */
 	public JPanel getKeyboard()
 	{
-		keys = new JPanel(new CardLayout()); //Keyboard includs 
+		JPanel keys = new JPanel(new CardLayout());
 		
 		JPanel keyboard = new JPanel();
 		keyboard.setBackground(new Color(153,204,255));
@@ -226,14 +225,13 @@ public class Board implements ActionListener
 	
 	public void actionPerformed(ActionEvent e) 
 	{
-		if(e.getActionCommand().equals("A"))
-		{	
-			if(word.indexOf("a") < 0)
+		if(e.getActionCommand().equals("A")) {
+			if (!word.contains("a"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("a") >= 0)
+			while (word.contains("a"))
 			{
 				letters.get(word.indexOf("a")).setVisible(true);
 				word = word.substring(0, word.indexOf("a")) + "!" + word.substring(word.indexOf("a") + 1);
@@ -243,12 +241,12 @@ public class Board implements ActionListener
 	
 		if(e.getActionCommand().equals("B"))
 		{
-			if(word.indexOf("b") < 0)
+			if (!word.contains("b"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("b") >= 0)
+			while (word.contains("b"))
 			{
 				letters.get(word.indexOf("b")).setVisible(true);
 				word = word.substring(0, word.indexOf("b")) + "!" + word.substring(word.indexOf("b") + 1);
@@ -257,14 +255,13 @@ public class Board implements ActionListener
 			buttons.get(1).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("C"))
-		{	
-			if(word.indexOf("c") < 0)
+		if(e.getActionCommand().equals("C")) {
+			if (!word.contains("c"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("c") >= 0)
+			while (word.contains("c"))
 			{
 				letters.get(word.indexOf("c")).setVisible(true);
 				word = word.substring(0, word.indexOf("c")) + "!" + word.substring(word.indexOf("c") + 1);
@@ -272,14 +269,13 @@ public class Board implements ActionListener
 			buttons.get(2).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("D"))
-		{	
-			if(word.indexOf("d") < 0)
+		if(e.getActionCommand().equals("D")) {
+			if (!word.contains("d"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("d") >= 0)
+			while (word.contains("d"))
 			{
 				letters.get(word.indexOf("d")).setVisible(true);
 				word = word.substring(0, word.indexOf("d")) + "!" + word.substring(word.indexOf("d") + 1);
@@ -289,14 +285,13 @@ public class Board implements ActionListener
 		
 		}
 		
-		if(e.getActionCommand().equals("E"))
-		{	
-			if(word.indexOf("e") < 0)
+		if(e.getActionCommand().equals("E")) {
+			if (!word.contains("e"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("e") >= 0)
+			while (word.contains("e"))
 			{
 				letters.get(word.indexOf("e")).setVisible(true);
 				word = word.substring(0, word.indexOf("e")) + "!" + word.substring(word.indexOf("e") + 1);
@@ -306,14 +301,13 @@ public class Board implements ActionListener
 			
 		}
 		
-		if(e.getActionCommand().equals("F"))
-		{	
-			if(word.indexOf("f") < 0)
+		if(e.getActionCommand().equals("F")) {
+			if (!word.contains("f"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("f") >= 0)
+			while (word.contains("f"))
 			{
 				letters.get(word.indexOf("f")).setVisible(true);
 				word = word.substring(0, word.indexOf("f")) + "!" + word.substring(word.indexOf("f") + 1);
@@ -322,14 +316,13 @@ public class Board implements ActionListener
 		
 		}
 		
-		if(e.getActionCommand().equals("G"))
-		{	
-			if(word.indexOf("g") < 0)
+		if(e.getActionCommand().equals("G")) {
+			if (!word.contains("g"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("g") >= 0)
+			while (word.contains("g"))
 			{
 				letters.get(word.indexOf("g")).setVisible(true);
 				word = word.substring(0, word.indexOf("g")) + "!" + word.substring(word.indexOf("g") + 1);
@@ -338,14 +331,13 @@ public class Board implements ActionListener
 		
 		}
 		
-		if(e.getActionCommand().equals("H"))
-		{	
-			if(word.indexOf("h") < 0)
+		if(e.getActionCommand().equals("H")) {
+			if (!word.contains("h"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("h") >= 0)
+			while (word.contains("h"))
 			{
 				letters.get(word.indexOf("h")).setVisible(true);
 				word = word.substring(0, word.indexOf("h")) + "!" + word.substring(word.indexOf("h") + 1);
@@ -353,14 +345,13 @@ public class Board implements ActionListener
 			buttons.get(7).setVisible(false);	
 		}
 		
-		if(e.getActionCommand().equals("I"))
-		{	
-			if(word.indexOf("i") < 0)
+		if(e.getActionCommand().equals("I")) {
+			if (!word.contains("i"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("i") >= 0)
+			while (word.contains("i"))
 			{
 				letters.get(word.indexOf("i")).setVisible(true);
 				word = word.substring(0, word.indexOf("i")) + "!" + word.substring(word.indexOf("i") + 1);		 
@@ -368,14 +359,13 @@ public class Board implements ActionListener
 			buttons.get(8).setVisible(false);		
 		}
 		
-		if(e.getActionCommand().equals("J"))
-		{	
-			if(word.indexOf("j") < 0)
+		if(e.getActionCommand().equals("J")) {
+			if (!word.contains("j"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("j") >= 0)
+			while (word.contains("j"))
 			{
 				letters.get(word.indexOf("j")).setVisible(true);
 				word = word.substring(0, word.indexOf("j")) + "!" + word.substring(word.indexOf("j") + 1);
@@ -384,14 +374,13 @@ public class Board implements ActionListener
 		
 		}
 		
-		if(e.getActionCommand().equals("K"))
-		{	
-			if(word.indexOf("k") < 0)
+		if(e.getActionCommand().equals("K")) {
+			if (!word.contains("k"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("k") >= 0)
+			while (word.contains("k"))
 			{
 				letters.get(word.indexOf("k")).setVisible(true);
 				word = word.substring(0, word.indexOf("k")) + "!" + word.substring(word.indexOf("k") + 1);
@@ -400,14 +389,13 @@ public class Board implements ActionListener
 		
 		}
 		
-		if(e.getActionCommand().equals("L"))
-		{	
-			if(word.indexOf("l") < 0)
+		if(e.getActionCommand().equals("L")) {
+			if (!word.contains("l"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("l") >= 0)
+			while (word.contains("l"))
 			{
 				letters.get(word.indexOf("l")).setVisible(true);
 				word = word.substring(0, word.indexOf("l")) + "!" + word.substring(word.indexOf("l") + 1);
@@ -415,14 +403,13 @@ public class Board implements ActionListener
 				buttons.get(11).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("M"))
-		{	
-			if(word.indexOf("m") < 0)
+		if(e.getActionCommand().equals("M")) {
+			if (!word.contains("m"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("m") >= 0)
+			while (word.contains("m"))
 			{
 				letters.get(word.indexOf("m")).setVisible(true);
 				word = word.substring(0, word.indexOf("m")) + "!" + word.substring(word.indexOf("m") + 1);
@@ -430,14 +417,13 @@ public class Board implements ActionListener
 			buttons.get(12).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("N"))
-		{	
-			if(word.indexOf("n") < 0)
+		if(e.getActionCommand().equals("N")) {
+			if (!word.contains("n"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("n") >= 0)
+			while (word.contains("n"))
 			{
 				letters.get(word.indexOf("n")).setVisible(true);
 				word = word.substring(0, word.indexOf("n")) + "!" + word.substring(word.indexOf("n") + 1);
@@ -445,14 +431,13 @@ public class Board implements ActionListener
 			buttons.get(13).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("O"))
-		{	
-			if(word.indexOf("o") < 0)
+		if(e.getActionCommand().equals("O")) {
+			if (!word.contains("o"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("o") >= 0)
+			while (word.contains("o"))
 			{
 				letters.get(word.indexOf("o")).setVisible(true);
 				word = word.substring(0, word.indexOf("o")) + "!" + word.substring(word.indexOf("o") + 1);
@@ -461,14 +446,13 @@ public class Board implements ActionListener
 			buttons.get(14).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("P"))
-		{	
-			if(word.indexOf("p") < 0)
+		if(e.getActionCommand().equals("P")) {
+			if (!word.contains("p"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("p") >= 0)
+			while (word.contains("p"))
 			{
 			letters.get(word.indexOf("p")).setVisible(true);
 			word = word.substring(0, word.indexOf("p")) + "!" + word.substring(word.indexOf("p") + 1);
@@ -476,14 +460,13 @@ public class Board implements ActionListener
 			buttons.get(15).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("Q"))
-		{	
-			if(word.indexOf("q") < 0)
+		if(e.getActionCommand().equals("Q")) {
+			if (!word.contains("q"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("q") >= 0)
+			while (word.contains("q"))
 			{
 				letters.get(word.indexOf("q")).setVisible(true);
 				word = word.substring(0, word.indexOf("q")) + "!" + word.substring(word.indexOf("q") + 1);
@@ -491,14 +474,13 @@ public class Board implements ActionListener
 		buttons.get(16).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("R"))
-		{	
-			if(word.indexOf("r") < 0)
+		if(e.getActionCommand().equals("R")) {
+			if (!word.contains("r"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("r") >= 0)
+			while (word.contains("r"))
 			{
 					letters.get(word.indexOf("r")).setVisible(true);
 					word = word.substring(0, word.indexOf("r")) + "!" + word.substring(word.indexOf("r") + 1);
@@ -506,14 +488,13 @@ public class Board implements ActionListener
 			buttons.get(17).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("S"))
-		{	
-			if(word.indexOf("s") < 0)
+		if(e.getActionCommand().equals("S")) {
+			if (!word.contains("s"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("s") >= 0)
+			while (word.contains("s"))
 			{
 				letters.get(word.indexOf("s")).setVisible(true);
 				word = word.substring(0, word.indexOf("s")) + "!" + word.substring(word.indexOf("s") + 1);
@@ -523,12 +504,12 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("T"))
 		{
-			if(word.indexOf("t") < 0)
+			if (!word.contains("t"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("t") >= 0)
+			while (word.contains("t"))
 			{
 				letters.get(word.indexOf("t")).setVisible(true);
 				word = word.substring(0, word.indexOf("t")) + "!" + word.substring(word.indexOf("t") + 1);
@@ -536,14 +517,13 @@ public class Board implements ActionListener
 			buttons.get(19).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("U"))
-		{	
-			if(word.indexOf("u") < 0)
+		if(e.getActionCommand().equals("U")) {
+			if (!word.contains("u"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("u") >= 0)
+			while (word.contains("u"))
 			{
 				letters.get(word.indexOf("u")).setVisible(true);
 				word = word.substring(0, word.indexOf("u")) + "!" + word.substring(word.indexOf("u") + 1);
@@ -554,12 +534,12 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("V"))
 		{
-			if(word.indexOf("v") < 0)
+			if (!word.contains("v"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("v") >= 0)
+			while (word.contains("v"))
 			{
 				letters.get(word.indexOf("v")).setVisible(true);
 				word = word.substring(0, word.indexOf("v")) + "!" + word.substring(word.indexOf("v") + 1);
@@ -569,12 +549,12 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("W"))
 		{
-			if(word.indexOf("w") < 0)
+			if (!word.contains("w"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("w") >= 0)
+			while (word.contains("w"))
 			{
 				letters.get(word.indexOf("w")).setVisible(true);
 				word = word.substring(0, word.indexOf("w")) + "!" + word.substring(word.indexOf("w") + 1);
@@ -582,14 +562,13 @@ public class Board implements ActionListener
 				buttons.get(22).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("X"))
-		{			
-			if(word.indexOf("x") < 0)
+		if(e.getActionCommand().equals("X")) {
+			if (!word.contains("x"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("x") >= 0)
+			while (word.contains("x"))
 			{
 				letters.get(word.indexOf("x")).setVisible(true);
 				word = word.substring(0, word.indexOf("x")) + "!" + word.substring(word.indexOf("x") + 1);
@@ -599,14 +578,13 @@ public class Board implements ActionListener
 			buttons.get(23).setVisible(false);
 		}
 		
-		if(e.getActionCommand().equals("Y"))
-		{	
-			if(word.indexOf("y") < 0)
+		if(e.getActionCommand().equals("Y")) {
+			if (!word.contains("y"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("y") >= 0)
+			while (word.contains("y"))
 			{
 				letters.get(word.indexOf("y")).setVisible(true);
 				word = word.substring(0, word.indexOf("y")) + "!" + word.substring(word.indexOf("y") + 1);
@@ -616,12 +594,12 @@ public class Board implements ActionListener
 		
 		if(e.getActionCommand().equals("Z"))
 		{
-			if(word.indexOf("z") < 0)
+			if (!word.contains("z"))
 			{
 				h.addWrong();
 				h.changeImage();
 			}
-			while(word.indexOf("z") >= 0)
+			while (word.contains("z"))
 			{
 				letters.get(word.indexOf("z")).setVisible(true);
 				word = word.substring(0, word.indexOf("z")) + "!" + word.substring(word.indexOf("z") + 1);
@@ -635,8 +613,8 @@ public class Board implements ActionListener
 			if(!l.isVisible())
 				gameWon = false;
 		}
-		
-		if(gameWon == true)
+
+		if (gameWon)
 		{
 			word1.setVisible(true);
 			for(JButton i: buttons)

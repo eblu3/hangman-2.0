@@ -4,16 +4,20 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import javax.swing.*;
 import javax.swing.text.BadLocationException;
- 
-public class MainWindow implements ActionListener
+
+class MainWindow implements ActionListener
 {
     private final static String PLAYGAME = "Game"; //Title of Tab1
     private final static String INSTRUCTIONS = "Instructions"; //Title of Tab2
     
     private InstructionsPage ins = new InstructionsPage();
     private Board board = new Board();
-    
-    private JPanel game1, game2, game3, buttons, p, keyboard;
+
+    private JPanel game1;
+    private JPanel game2;
+    private JPanel game3;
+    private JPanel buttons;
+    private JPanel p;
     private JLabel welcome;
     private JButton b;
     private JComboBox<String> difficultySelector;
@@ -25,7 +29,7 @@ public class MainWindow implements ActionListener
      * @param pane
      * @throws FileNotFoundException
      */
-    public void addTabs(Container pane) throws FileNotFoundException 
+    private void addTabs(Container pane) throws FileNotFoundException
     {
         JTabbedPane menu = new JTabbedPane(); //Creates Menu Pane
         
@@ -41,7 +45,7 @@ public class MainWindow implements ActionListener
         p.setBackground(new Color(0, 204, 204));
         
         //Keyboard
-        keyboard = board.getKeyboard();
+        JPanel keyboard = board.getKeyboard();
         
         //Window of the Game Possibilities
         Board bo1 = new Board();
@@ -53,7 +57,7 @@ public class MainWindow implements ActionListener
 
         b = new JButton("Continue");
         b.setPreferredSize(new Dimension(300,100));
-        difficultySelector = new JComboBox<String>(difficulties);
+        difficultySelector = new JComboBox<>(difficulties);
         difficultySelector.setPreferredSize(new Dimension(300,100));
         
         //Buttons Panel additions

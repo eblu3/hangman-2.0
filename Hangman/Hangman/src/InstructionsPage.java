@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class InstructionsPage extends JFrame
+class InstructionsPage extends JFrame
 {
 	private static final long serialVersionUID = -8834323742424624104L;
 
